@@ -1,0 +1,52 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  background: #eee;
+  color: #222;
+  font-family: Helvetica;
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 1em auto 0 auto;
+}
+
+h2, #foot {
+  font-size: 1.25rem;
+  margin: 2rem 0 2rem 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+li {
+  text-align: left;
+  margin-bottom: .7rem;
+}
+
+#img-div {
+  max-width: min(399px, 100%);
+  margin: auto;
+  padding: 10px;
+  background: #fff;
+}
+
+#image {
+  aspect-ratio: 399 / 599;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#img-caption, #image {
+  max-width: 100%;
+}
+
+#tribute-info {
+  max-width: 60%;
+  margin: auto;
+}

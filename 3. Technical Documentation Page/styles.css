@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #111;
+  color: #ccc;
+}
+
+
+/* navigate */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 25%;
+  padding-right: 2px;
+  border-right: 2px solid lightskyblue;
+}
+
+
+#navbar>header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+
+#nav-ul {
+  font-size: 1.75rem;
+  height: calc(100% - 6.5rem);
+  overflow: auto;
+  list-style-type: none;
+  padding: 0;
+}
+
+
+#nav-ul>li {
+  border-top: 1px solid cyan;
+  padding: 10px 20px;
+}
+
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-link:link, .nav-link:visited {
+  color: #ccc;
+}
+
+.nav-link:hover, .nav-link:active {
+  color: cyan;
+}
+
+
+/* main */
+#main-doc {
+  position: absolute;
+  left: 25%;
+  padding: 0 2rem 0 10rem;
+  list-style-position: inside;
+}
+
+
+.main-section {
+  margin: 2rem 0 3rem 0;
+}
+
+.main-section>*, .main-section>*>* {
+  margin: 1rem 0;
+}
+
+
+.main-section>header {
+  color: cyan;
+  font-weight: bold;
+  font-size: 1.8rem;
+  padding-bottom: 1rem;
+  margin-left: -8rem;
+}
+
+.main-section> :not(header, pre) {
+  padding: 0 .5rem 0 1.5rem;
+  margin-left: -8rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+pre {
+  background: slateblue;
+  width: 85%;
+  overflow: auto;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* Small screen */
+@media (max-width: 850px) {
+  html {
+    font-size: 8px;
+  }
+
+  #navbar {
+    position: static;
+    height: calc(12.75rem + 117px);
+    width: 100%;
+    border-right: none;
+  }
+
+  #nav-ul {
+    height: calc(100% - 4rem);
+    border: 1px solid lightskyblue;
+  }
+
+  #main-doc {
+    position: static;
+    font-size: 1.5rem;
+  }
+}

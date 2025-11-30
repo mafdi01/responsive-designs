@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Survey Form</title>
+  <meta name="description"
+    content="Survey Form Mockup, A Required Project For Responsive Web Design Certification at freeCodeCamp" />
+  <meta name="author" content="Mafdi Bissada">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="glass">
+    <h1 id="title">Survey Form</h1>
+    <p id="description">Your opinion matters! Please take two minutes to complete our annual survey</p>
+  </div>
+  <form id="survey-form" class="glass">
+    <fieldset>
+      <label for="name" id="name-label">Name <input id="name" type="text" name="name" required
+          placeholder="Enter Your Name" /></label>
+      <label for="email" id="email-label">Email <input id="email" type="email" name="email" required
+          placeholder="Enter Your Email" /></label>
+      <label for="number" id="number-label">Age (optional)<input id="number" type="number" name="age" placeholder="Age"
+          min="18" max="150" /></label>
+      <label for="dropdown" id="dropdown-label">What is your first language?
+        <select id="dropdown" name="First-lang">
+          <option value="">Select your language</option>
+          <option value="1">Arabic</option>
+          <option value="2">English</option>
+          <option value="3">French</option>
+          <option value="4">Other</option>
+        </select>
+      </label>
+    </fieldset>
+    <fieldset>
+      <p class="question">Which of the following programming languages do you prefer?</p>
+      <label for="js"><input type="radio" id="js" name="prog-lang-prefer" value="js" /> JavaScript</label>
+      <label for="py"><input type="radio" id="py" name="prog-lang-prefer" value="py" /> Python</label>
+      <label for="c-lang"><input type="radio" id="c-lang" name="prog-lang-prefer" value="c-lang" /> C programming
+        language</label>
+    </fieldset>
+    <fieldset>
+      <p class="question">Which of our content you find useful?</p>
+      <label for="long-vid"><input type="checkbox" id="long-vid" name="useful-content" value="long-vid" /> Long
+        Videos</label>
+      <label for="short-vid"><input type="checkbox" id="short-vid" name="useful-content" value="short-vid" /> Short
+        Videos</label>
+      <label for="article"><input type="checkbox" id="article" name="useful-content" value="article" /> Articles</label>
+      <label for="slide"><input type="checkbox" id="slide" name="useful-content" value="slide" /> Slideshows</label>
+      <label for="mindmap"><input type="checkbox" id="mindmap" name="useful-content" value="mindmap" /> Mindmaps</label>
+    </fieldset>
+    <fieldset>
+      <label for="comment">Any comments?
+        <textarea id="comment" name="comment" placeholder="Enter additional comment" rows="7"></textarea>
+      </label>
+    </fieldset>
+    <fieldset>
+      <input type="submit" id="submit">
+    </fieldset>
+  </form>
+</body>
+
+</html>
