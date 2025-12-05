@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 20px;
+}
 
 body {
   background: linear-gradient(90deg, rgba(0, 0, 122, 50%), 60%, rgba(255, 0, 122, 50%));
@@ -9,80 +12,78 @@ body {
   color: #fff;
 }
 
-
 .glass {
   background: rgba(0, 0, 0, 0.4);
-  border-radius: 0.5em;
-  padding: 0.5em;
-  margin: 0.5em auto;
-  width: 60vw;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 0.5rem auto;
+  max-width: 700px;
 }
 
-
-h1, #description {
-  text-align: center;
+#title {
+  margin-top: 0;
 }
-
 
 #description {
-  font-size: 1.25em
+  margin-bottom: 0;
 }
-
 
 fieldset {
-  margin: 2em;
-  padding: 0;
   border: none;
+  padding: 0;
+  margin: 0;
 }
-
 
 fieldset:last-of-type {
   text-align: center;
 }
 
+#description, .question, label, input, select, textarea {
+  font-size: 1.2rem;
+}
 
 label {
   display: block;
 }
 
-
 .question {
-  margin: 0 0 .2em 0;
+  margin: 2rem 0 .5rem 0;
 }
-
 
 input, select {
   width: 100%;
-  height: 2.5em;
-  padding: 0 .5em;
-  font-size: 1em;
-  margin: .2em 0 1em 0;
-  border-radius: .5em;
+  height: 2.5rem;
+  padding: 0 .5rem;
+  margin: .2rem 0 2rem 0;
+  border-radius: .5rem;
   border-color: transparent;
 }
 
-
 input[type="radio"], input[type="checkbox"] {
-  width: unset;
+  width: 1.2rem;
   vertical-align: middle;
-  margin: 0 .5em 0 0;
+  margin: 0 .5rem 0 0;
 }
-
 
 input[type="submit"] {
   background-color: #0c0;
-  width: 20vw;
-  margin: 0;
+  width: max-content;
+  margin: 1rem 0 0 0;
 }
-
 
 textarea {
   width: 100%;
-  min-height: 7em;
+  min-height: 7rem;
+  max-height: 14rem;
   resize: vertical;
-  font-size: 1.25em;
-  padding: .5em;
-  margin-top: .2em;
-  border-radius: .5em;
+  padding: .5rem;
+  margin-top: .2rem;
+  border-radius: .5rem;
   border-color: transparent;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
 }

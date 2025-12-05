@@ -7,13 +7,14 @@
     content="Survey Form Mockup, A Required Project For Responsive Web Design Certification at freeCodeCamp" />
   <meta name="author" content="Mafdi Bissada">
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <div class="glass">
-    <h1 id="title">Survey Form</h1>
-    <p id="description">Your opinion matters! <br>Please take two minutes to complete our annual survey</p>
+    <h1 id="title">Your opinion matters!</h1>
+    <p id="description">Please take two minutes to complete our annual survey</p>
   </div>
   <form id="survey-form" class="glass">
     <fieldset>
@@ -25,7 +26,7 @@
           min="18" max="150" /></label>
       <label for="dropdown" id="dropdown-label">What is your first language?
         <select id="dropdown" name="First-lang">
-          <option value="">Select your language</option>
+          <option value=""></option>
           <option value="1">Arabic</option>
           <option value="2">English</option>
           <option value="3">French</option>
@@ -51,7 +52,7 @@
       <label for="mindmap"><input type="checkbox" id="mindmap" name="useful-content" value="mindmap" /> Mindmaps</label>
     </fieldset>
     <fieldset>
-      <label for="comment">Any comments?
+      <label for="comment" class="question">Any comments?
         <textarea id="comment" name="comment" placeholder="Enter additional comment" rows="7"></textarea>
       </label>
     </fieldset>
