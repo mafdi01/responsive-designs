@@ -67,7 +67,7 @@ input[type="radio"], input[type="checkbox"] {
 
 input[type="submit"] {
   background-color: #0c0;
-  width: max-content;
+  width: 50%;
   margin: 1rem 0 0 0;
 }
 
