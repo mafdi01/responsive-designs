@@ -89,7 +89,7 @@ header {
 }
 
 #ctrl-animation {
-  margin: 0 1rem;
+  margin-right: 1rem;
 
   & input {
     display: none;
