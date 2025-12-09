@@ -14,6 +14,7 @@ These projects demonstrate proficiency in core web design principles, including 
 | **2. Tribute Page (Fan-tailed Cuckoo)** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/2.%20Tribute%20Page/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/2.%20Tribute%20Page) |
 | **3. Technical Documentation Page** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/3.%20Technical%20Documentation%20Page/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/3.%20Technical%20Documentation%20Page) |
 | **4. Product Landing Page Mockup** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/4.%20Product%20Landing%20Page/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/4.%20Product%20Landing%20Page) |
+| **5. Personal Portfolio Webpage** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/5.%20Personal%20Portfolio%20Webpage/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/5.%20Personal%20Portfolio%20Webpage) |
 
 ---
 
