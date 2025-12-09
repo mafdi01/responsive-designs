@@ -70,8 +70,6 @@ header {
   font-size: 1.5rem;
 }
 
-
-
 #navbar ul {
   display: flex;
   flex-wrap: wrap;
@@ -288,13 +286,13 @@ footer {
 /* Small phones */
 @media (max-width: 480px) {
   html {
-    font-size: 8px;
+    font-size: 10px;
   }
 
   #logo-container a {
     width: 4rem;
     height: 4rem;
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
 
