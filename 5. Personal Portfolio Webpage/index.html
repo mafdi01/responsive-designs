@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Mafdi Bissada">
+  <meta name="description"
+    content="Personal Portfolio Webpage - A collection of responsive web designs built using HTML and pure CSS. These projects were originally completed as part of the curriculum for the Responsive Web Design Certification at freeCodeCamp." />
+  <title>Personal Portfolio Webpage</title>
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Google fonts start -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <!-- Google fonts end -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<!-- User Stories:
+1. Your portfolio should have a welcome section with an id of welcome-section
+2. The welcome section should have an h1 element that contains text
+3. Your portfolio should have a projects section with an id of projects
+4. The projects section should contain at least one element with a class of project-tile to hold a project
+5. The projects section should contain at least one link to a project
+6. Your portfolio should have a navbar with an id of navbar
+7. The navbar should contain at least one link that you can click on to navigate to different sections of the page
+8. Your portfolio should have a link with an id of profile-link, which opens your GitHub or freeCodeCamp profile in a new tab
+9. Your portfolio should have at least one media query
+10. The height of the welcome section should be equal to the height of the viewport
+11. The navbar should always be at the top of the viewport
+-->
+
+<body class="noto-serif">
+  <header>
+    <nav id="navbar">
+      <ul>
+        <li><a href="#welcome-section">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#profiles">Profiles</a></li>
+      </ul>
+    </nav>
+
+    <article id="ctrl-animation">
+      <input id="animation-on-off" type="checkbox" checked>
+      <label for="animation-on-off"><span id="cool-checkbox"></span>Animation</label>
+    </article>
+  </header>
+
+  <main>
+    <section id="welcome-section">
+      <h1 class="noto-serif-display">Mafdi Bissada</h1>
+      <p class="small-display">Front-End Developer | Analytical Problem Solver | Bridging Web Interfaces with Geospatial
+        Data</p>
+    </section>
+
+    <section id="projects">
+      <h2 class="small-display">A collection of responsive web designs</h2>
+      <article class="project-tile">
+        <a target="_blank" href="https://mafdi01.github.io/responsive-designs/1.%20Survey%20Form/">
+          <img alt="image of Survey Form Mockup" src="images\project 1.png">
+          <p>Survey Form Mockup</p>
+        </a>
+      </article>
+      <article class="project-tile">
+        <a target="_blank" href="https://mafdi01.github.io/responsive-designs/2.%20Tribute%20Page/">
+          <img alt="image of Tribute Page (Fan-tailed Cuckoo)" src="images\project 2.png">
+          <p>Tribute Page (Fan-tailed Cuckoo)</p>
+        </a>
+      </article>
+      <article class="wide project-tile">
+        <a target="_blank" href="https://mafdi01.github.io/responsive-designs/3.%20Technical%20Documentation%20Page/">
+          <img alt="image of Technical Documentation Page" src="images\project 3.png">
+          <p>Technical Documentation Page</p>
+        </a>
+      </article>
+      <article class="wide project-tile">
+        <a target="_blank" href="https://mafdi01.github.io/responsive-designs/4.%20Product%20Landing%20Page/">
+          <img alt="image of Product Landing Page Mockup" src="images/project 4.png">
+          <p>Product Landing Page Mockup</p>
+        </a>
+      </article>
+    </section>
+
+    <section id="profiles">
+      <h2 class="small-display">How about staying in the loop?</h2>
+      <div id="logo-container">
+        <a href="https://www.linkedin.com/in/mafdi-bissada/" target="_blank"
+          style="background-color: #000000; color: #FFFFFF;">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://codepen.io/Mafdi" target="_blank" style="background-color: #000; color: #fff;">
+          <i class="fa-brands fa-codepen"></i>
+        </a>
+        <a id="profile-link" href="https://www.freecodecamp.org/mafdi7" target="_blank"
+          style="background-color: #0a0a23; color: #fff;">
+          <i class="fa-brands fa-free-code-camp"></i>
+        </a>
+        <a href="https://github.com/mafdi01" target="_blank" style="background-color: #171515; color: #fff;">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://stackoverflow.com/users/15088777/m-b" target="_blank"
+          style="background-color: #252627; color: #F9FAFA;">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Mafdi Bissada</p>
+  </footer>
+</body>
+
+</html>
