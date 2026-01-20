@@ -8,13 +8,13 @@ A collection of responsive web designs built using **HTML** and pure **CSS**. Th
 
 These projects demonstrate proficiency in core web design principles, including semantic HTML, CSS styling, media queries, and implementing responsive layouts (Flexbox/Grid).
 
-| Project Title | Core Requirement | Live Demo | Source Code |
-| :--- | :--- | :--- | :--- |
-| **1. Survey Form Mockup** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/1.%20Survey%20Form/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/1.%20Survey%20Form) |
-| **2. Tribute Page (Fan-tailed Cuckoo)** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/2.%20Tribute%20Page/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/2.%20Tribute%20Page) |
-| **3. Technical Documentation Page** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/3.%20Technical%20Documentation%20Page/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/3.%20Technical%20Documentation%20Page) |
-| **4. Product Landing Page Mockup** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/4.%20Product%20Landing%20Page/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/4.%20Product%20Landing%20Page) |
-| **5. Personal Portfolio Webpage** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/5.%20Personal%20Portfolio%20Webpage/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/5.%20Personal%20Portfolio%20Webpage) |
+| Project Title                       | Core Requirement | Live Demo                                                                                    | Source Code                                                                                         |
+| :---------------------------------- | :--------------- | :------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
+| **1. Survey Form Mockup**           | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/Survey-Form/)                  | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/Survey-Form)                  |
+| **2. Tribute Page**                 | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/Tribute-Page/)                 | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/Tribute-Page)                 |
+| **3. Technical Documentation Page** | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/Technical-Documentation-Page/) | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/Technical-Documentation-Page) |
+| **4. Product Landing Page Mockup**  | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/Product-Landing-Page/)         | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/Product-Landing-Page)         |
+| **5. Personal Portfolio Webpage**   | Required Project | [View Live Page](https://mafdi01.github.io/responsive-designs/Personal-Portfolio-Webpage/)   | [Repo Folder](https://github.com/mafdi01/responsive-designs/tree/main/Personal-Portfolio-Webpage)   |
 
 ---
 
@@ -31,5 +31,5 @@ These projects fulfill the requirements for the freeCodeCamp certification:
 If you want to clone and run this code locally:
 
 1.  Clone the repository: `git clone https://github.com/mafdi01/responsive-designs.git`
-2.  Navigate to a project folder (e.g., `cd 4. Product Landing Page`).
+2.  Navigate to a project folder (e.g., `cd Product-Landing-Page`).
 3.  Open `index.html` in your web browser.
