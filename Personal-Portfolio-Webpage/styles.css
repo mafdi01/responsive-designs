@@ -39,7 +39,7 @@
 }
 
 .small-display,
-.project-tile>p {
+.project-tile h3 {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: italic;
@@ -190,7 +190,7 @@ header {
 
 .project-tile {
   width: var(--project-tile-width);
-  padding: 2rem;
+  padding: .5rem;
   border-radius: 1rem;
   margin-bottom: 1rem;
 
@@ -223,7 +223,7 @@ header {
     object-fit: cover;
   }
 
-  & p {
+  & h3 {
     text-transform: capitalize;
     background: linear-gradient(90deg, var(--color-2), var(--color-2-alt));
     color: var(--color-1);
