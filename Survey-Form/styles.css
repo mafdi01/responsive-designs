@@ -59,6 +59,11 @@ input, select {
   border-color: transparent;
 }
 
+input:focus:invalid, textarea:focus:invalid {
+    color: red;
+    border: red 3px solid;
+}
+
 input[type="radio"], input[type="checkbox"] {
   width: 1.2rem;
   vertical-align: middle;
