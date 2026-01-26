@@ -59,7 +59,7 @@ input, select {
   border-color: transparent;
 }
 
-input:focus:invalid, textarea:focus:invalid {
+input:focus:invalid {
     color: red;
     border: red 3px solid;
 }
