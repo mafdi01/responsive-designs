@@ -18,8 +18,8 @@
   </div>
   <form id="survey-form" class="glass">
     <fieldset>
-      <label for="name" id="name-label">Name <input id="name" type="text" name="name" minlength="3" maxlength="40" required
-          placeholder="Enter Your Name" /></label>
+      <label for="name" id="name-label">Name <input id="name" type="text" name="name" minlength="3" maxlength="40"
+          required placeholder="Enter Your Name" /></label>
       <label for="email" id="email-label">Email <input id="email" type="email" name="email" required
           placeholder="Enter Your Email" /></label>
       <label for="number" id="number-label">Age (optional)<input id="number" type="number" name="age" placeholder="Age"
@@ -53,13 +53,35 @@
     </fieldset>
     <fieldset>
       <label for="comment" class="question">Any comments?
-        <textarea id="comment" name="comment" placeholder="Enter additional comment" rows="7" maxlength="1000"></textarea>
+        <textarea id="comment" name="comment" placeholder="Enter additional comment" rows="7"
+          maxlength="1000"></textarea>
       </label>
+      <div class="counter">
+        <span id="current-count">0</span> / <span id="max-count"></span>
+      </div>
     </fieldset>
     <fieldset>
       <input type="submit" id="submit">
     </fieldset>
   </form>
+
+  <script>
+    // Select the elements
+    const textarea = document.getElementById('comment');
+    const currentCount = document.getElementById('current-count');
+    const maxCount = document.getElementById('max-count');
+    const maxLength = textarea.getAttribute('maxlength');
+    // Set the maxCount
+    maxCount.textContent = maxLength;
+
+    // Add the event listener
+    textarea.addEventListener('input', () => {
+      // Get the length of the current value
+      const length = textarea.value.length;
+      // Update the DOM
+      currentCount.textContent = length;
+    });
+  </script>
 </body>
 
 </html>
