@@ -56,9 +56,9 @@
         <textarea id="comment" name="comment" placeholder="Enter additional comment" rows="7"
           maxlength="1000"></textarea>
       </label>
-      <div class="counter">
-        <span id="current-count">0</span> / <span id="max-count"></span>
-      </div>
+      <label for="comment-char-count">Characters left: <output id="comment-char-count" name="comment-char-count"
+          for="comment"></output>
+      </label>
     </fieldset>
     <fieldset>
       <input type="submit" id="submit">
@@ -67,21 +67,22 @@
 
   <script>
     // Select the elements
-    const textarea = document.getElementById('comment');
-    const currentCount = document.getElementById('current-count');
-    const maxCount = document.getElementById('max-count');
-    const maxLength = textarea.getAttribute('maxlength');
-    // Set the maxCount
-    maxCount.textContent = maxLength;
+    const textarea = document.getElementById("comment");
+    const charLeft = document.getElementById("comment-char-count");
+    // Get maxlength of the textarea
+    const maxChar = textarea.getAttribute('maxlength');
+    // Set initial value
+    charLeft.value = maxChar;
 
     // Add the event listener
     textarea.addEventListener('input', () => {
       // Get the length of the current value
       const length = textarea.value.length;
       // Update the DOM
-      currentCount.textContent = length;
+      charLeft.value = maxChar - length;
     });
   </script>
+
 </body>
 
 </html>
