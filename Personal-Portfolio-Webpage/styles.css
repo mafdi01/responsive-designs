@@ -55,6 +55,7 @@ html {
   &:not(:has(#animation-on-off:checked)) {
     * {
       animation-name: none;
+      transform: none !important;
     }
   }
 }
