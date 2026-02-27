@@ -102,24 +102,20 @@ header {
     line-height: 1.5rem;
     padding: 1rem 0;
 
+    & #cool-checkbox {
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: #d3d3d3;
+      border-radius: 50%;
+      margin-right: .5rem;
+    }
+
     &:hover #cool-checkbox {
       background-color: var(--color-2);
     }
   }
 
-  & #cool-checkbox {
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: lightgray;
-    border-radius: 50%;
-    margin-right: .5rem;
-  }
-
   &:has(input:checked) {
-
-    &:hover #cool-checkbox {
-      background-color: #0b0;
-    }
 
     & #cool-checkbox {
       background-color: #0d0;
@@ -136,6 +132,10 @@ header {
         left: .4rem;
         top: .25rem;
       }
+    }
+
+    &:hover #cool-checkbox {
+      background-color: #0b0;
     }
   }
 }
@@ -197,19 +197,18 @@ header {
   padding: .5rem;
   border-radius: 1rem;
   margin-bottom: 1rem;
+  background-color: var(--color-5);
 
   &:last-child {
     margin-bottom: 0;
   }
 
   &:nth-of-type(odd) {
-    background-color: #8a2be2;
     animation: alternate 10s infinite linear to-right;
     animation-play-state: inherit;
   }
 
   &:nth-of-type(even) {
-    background-color: #f00;
     margin-left: calc(100% - var(--project-tile-width));
     animation: alternate 10s infinite linear to-left;
     animation-play-state: inherit;
