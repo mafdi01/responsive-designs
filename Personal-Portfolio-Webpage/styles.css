@@ -7,7 +7,6 @@
 :root {
   --header-height: 3.5rem;
   --project-tile-width: 18rem;
-
   --color-1: #121113;
   --color-1-alt: #032b43;
   --color-2: #f7f7f2;
@@ -53,6 +52,7 @@ html {
   scroll-behavior: smooth;
 
   &:not(:has(#animation-on-off:checked)) {
+
     * {
       animation-name: none;
       transform: none !important;
@@ -116,6 +116,7 @@ header {
   }
 
   &:has(input:checked) {
+
     &:hover #cool-checkbox {
       background-color: #0b0;
     }
@@ -174,12 +175,14 @@ header {
 }
 
 @keyframes to-right {
+
   100% {
     margin-left: calc(100% - var(--project-tile-width));
   }
 }
 
 @keyframes to-left {
+
   100% {
     margin-left: 0;
   }
@@ -200,13 +203,13 @@ header {
   }
 
   &:nth-of-type(odd) {
-    background-color: blueviolet;
+    background-color: #8a2be2;
     animation: alternate 10s infinite linear to-right;
     animation-play-state: inherit;
   }
 
   &:nth-of-type(even) {
-    background-color: red;
+    background-color: #f00;
     margin-left: calc(100% - var(--project-tile-width));
     animation: alternate 10s infinite linear to-left;
     animation-play-state: inherit;
@@ -288,6 +291,7 @@ footer {
 
 /* Small phones */
 @media (max-width: 480px) {
+
   html {
     font-size: 10px;
   }
@@ -301,6 +305,7 @@ footer {
 
 /* Tablets and larger phones (portrait) */
 @media (min-width: 481px) and (max-width: 768px) {
+
   html {
     font-size: 12px;
   }
