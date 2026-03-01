@@ -93,6 +93,21 @@ html {
       animation-name: none;
       transform: none !important;
     }
+
+    #projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+
+      & h2 {
+        width: 100%;
+      }
+
+      & .project-tile {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
