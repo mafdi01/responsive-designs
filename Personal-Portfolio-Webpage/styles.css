@@ -19,13 +19,48 @@
   --color-5-alt: #A4FC1E;
 }
 
+/* ============================================================
+   PERFORMANCE: font-display overrides
+   The Font Awesome CDN stylesheet does not declare font-display,
+   which defaults to "block" — the browser hides icon text for up
+   to 3 seconds while the woff2 downloads. "swap" makes it
+   immediately visible in a fallback glyph.
+   We declare our own @font-face for the brands subset with
+   font-display: swap to override the CDN's default.
+   ============================================================ */
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2') format('woff2'),
+    url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.ttf') format('truetype');
+}
+
+/* ============================================================
+   PERFORMANCE: System font fallback metrics
+   When custom fonts swap in (font-display: swap), the text
+   reflows because system fonts have different metrics than the
+   custom font. size-adjust and ascent/descent overrides align
+   the fallback font's metrics to Chakra Petch, minimising the
+   Cumulative Layout Shift (CLS) caused by the font swap.
+   ============================================================ */
+@font-face {
+  font-family: 'Chakra Petch Fallback';
+  src: local('Arial');
+  size-adjust: 96%;
+  ascent-override: 95%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+
 .noto-serif {
   font-family: "Noto Serif", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth"100;
+  font-variation-settings: "wdth"100;
 }
 
 .noto-serif-display {
@@ -33,13 +68,15 @@
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-variation-settings:
-    "wdth"100;
+  font-variation-settings: "wdth"100;
 }
 
 .small-display,
 .project-tile h3 {
-  font-family: "Chakra Petch", sans-serif;
+  /* 'Chakra Petch Fallback' is a metrics-adjusted @font-face alias for Arial
+     (defined above). It is used during the font-display swap period so the
+     fallback text has near-identical metrics to Chakra Petch, reducing CLS. */
+  font-family: "Chakra Petch", "Chakra Petch Fallback", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
@@ -52,11 +89,39 @@ html {
   scroll-behavior: smooth;
 
   &:not(:has(#animation-on-off:checked)) {
-
     * {
       animation-name: none;
       transform: none !important;
     }
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY: Keyboard focus styles
+   Ensures all interactive elements are visually reachable
+   by keyboard users (WCAG 2.4.7 - Focus Visible)
+   ============================================================ */
+:focus-visible {
+  outline: 3px solid var(--color-5-alt);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   ACCESSIBILITY: Respect system-level reduced-motion preference
+   Complements the in-page animation toggle for users who have
+   set "Reduce Motion" in their OS/browser settings
+   (WCAG 2.3.3 - Animation from Interactions, AAA)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -69,6 +134,8 @@ header {
   align-items: center;
   justify-content: space-between;
   font-size: 1.5rem;
+  /* Ensure header renders above animated project tiles */
+  z-index: 10;
 }
 
 #navbar ul {
@@ -163,6 +230,11 @@ header {
   padding: 1rem;
   text-align: center;
 
+  /* container-type enables 100cqi (container query inline size) in child animations,
+     which lets translateX reference the parent width — required for the composited
+     animation fix below. */
+  container-type: inline-size;
+
   & h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -174,17 +246,24 @@ header {
   }
 }
 
-@keyframes to-right {
-
-  100% {
-    margin-left: calc(100% - var(--project-tile-width));
+/* ============================================================
+   PERFORMANCE: GPU-composited slide animations
+   The original code animated `margin-left`, which is a layout
+   property — it forces the browser to recalculate layout on
+   every frame (non-composited), causing jank and CLS.
+   `transform: translateX` runs entirely on the GPU compositor
+   thread and does not trigger layout or paint.
+   100cqi = 100% of the #projects container's inline (width) size.
+   We subtract the tile width and the container's 2×1rem padding
+   to get the maximum right-edge offset.
+   ============================================================ */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
   }
-}
-
-@keyframes to-left {
 
   100% {
-    margin-left: 0;
+    transform: translateX(calc(100cqi - var(--project-tile-width) - 2rem));
   }
 }
 
@@ -203,14 +282,17 @@ header {
     margin-bottom: 0;
   }
 
+  /* Odd tiles: slide from left → right → left (alternate) */
   &:nth-of-type(odd) {
-    animation: alternate 10s infinite linear to-right;
+    animation: alternate 10s infinite linear slide;
     animation-play-state: inherit;
   }
 
+  /* Even tiles: start from the right edge, slide right → left → right.
+     alternate-reverse begins at the 100% keyframe (right) and
+     plays backward, replacing the old margin-left: offset trick. */
   &:nth-of-type(even) {
-    margin-left: calc(100% - var(--project-tile-width));
-    animation: alternate 10s infinite linear to-left;
+    animation: alternate-reverse 10s infinite linear slide;
     animation-play-state: inherit;
   }
 
@@ -222,6 +304,9 @@ header {
     /* A light grey box appears while the image downloads */
     background-color: #f0f0f0;
     width: 100%;
+    /* height: auto ensures the explicit width/height HTML attributes
+       set the correct aspect ratio while CSS controls the rendered size */
+    height: auto;
     display: block;
     border-radius: .5rem .5rem 0 0;
     max-height: 16rem;
@@ -250,10 +335,13 @@ header {
   align-items: center;
   padding: 1rem;
 
+  /* ACCESSIBILITY: --color-5-alt (#A4FC1E) on --color-3-alt (#D67A3C) = ~2.4:1 contrast,
+     which fails WCAG AA (requires 3:1 for large text, 4.5:1 for normal text).
+     Switched to --color-1 (#121113) which yields ~6.4:1 — passes AA and AAA for large text. */
   & h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--color-5-alt);
+    color: var(--color-1);
   }
 }
 
@@ -261,10 +349,11 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: .7rem;
 }
 
 #logo-container a {
-  margin: .7rem;
   transition: transform 0.3s ease-in-out;
   display: flex;
   justify-content: center;
@@ -290,7 +379,6 @@ footer {
 
 /* Small phones */
 @media (max-width: 480px) {
-
   html {
     font-size: 10px;
   }
@@ -304,7 +392,6 @@ footer {
 
 /* Tablets and larger phones (portrait) */
 @media (min-width: 481px) and (max-width: 768px) {
-
   html {
     font-size: 12px;
   }

@@ -9,33 +9,52 @@
     content="Personal Portfolio Webpage - A collection of responsive web designs built using HTML and pure CSS. These projects were originally completed as part of the curriculum for the Responsive Web Design Certification at freeCodeCamp." />
   <title>Personal Portfolio Webpage</title>
   <link rel="stylesheet" href="./styles.css">
-  <!-- Google fonts start -->
+
+  <!-- Google Fonts: preconnect + rel="preload" as="style" approach.
+       WHY preload instead of media="print":
+         - rel="preload" has the HIGHEST browser fetch priority and is discovered
+           immediately during HTML parsing — before any CSS is parsed.
+         - media="print" is discovered later and has lower priority, which
+           worsened LCP when the LCP element is text using a custom font.
+         - Both approaches are non-render-blocking; preload is strictly faster
+           for fonts because it moves fetch earlier in the waterfall.
+       WHY Chakra Petch weights were narrowed:
+         - Original request: 7 weights × 2 styles = up to 14 woff2 files.
+         - Page actually uses: italic 400 (.small-display, h3) and italic 700 (h3 bold).
+         - Noto Serif variants are kept as variable-font ranges (wdth axis requires it). -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <!-- Google fonts end -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,400;1,700&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,400;1,700&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+  </noscript>
 
-<!-- User Stories:
-1. Your portfolio should have a welcome section with an id of welcome-section
-2. The welcome section should have an h1 element that contains text
-3. Your portfolio should have a projects section with an id of projects
-4. The projects section should contain at least one element with a class of project-tile to hold a project
-5. The projects section should contain at least one link to a project
-6. Your portfolio should have a navbar with an id of navbar
-7. The navbar should contain at least one link that you can click on to navigate to different sections of the page
-8. Your portfolio should have a link with an id of profile-link, which opens your GitHub or freeCodeCamp profile in a new tab
-9. Your portfolio should have at least one media query
-10. The height of the welcome section should be equal to the height of the viewport
-11. The navbar should always be at the top of the viewport
--->
+  <!-- Font Awesome: brands-only subset (was all.min.css = 135 KB, brands.min.css = ~19 KB).
+       The page only uses fa-brands icons so the solid/regular/etc. icon sets are unused CSS.
+       Also loaded async to remove render-blocking. -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+  </noscript>
+  <!-- fontawesome.min.css must be loaded alongside any icon subset to provide shared base styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+  </noscript>
+</head>
 
 <body class="noto-serif">
   <header>
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Main navigation">
       <ul>
         <li><a href="#welcome-section">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -43,10 +62,11 @@
       </ul>
     </nav>
 
-    <article id="ctrl-animation">
-      <input id="animation-on-off" type="checkbox" checked>
+    <!-- Changed from <article> to <div>: this is a UI control, not independent content -->
+    <div id="ctrl-animation">
+      <input id="animation-on-off" type="checkbox" checked aria-label="Toggle animations">
       <label for="animation-on-off"><span id="cool-checkbox"></span>Animation</label>
-    </article>
+    </div>
   </header>
 
   <main>
@@ -59,9 +79,16 @@
     <section id="projects">
       <h2 class="small-display">A collection of responsive web designs</h2>
       <article class="project-tile">
-        <a target="_blank" href="https://mafdi01.github.io/responsive-designs/Survey-Form">
+        <!-- Added rel="noopener noreferrer" to all target="_blank" links -->
+        <a target="_blank" rel="noopener noreferrer" href="https://mafdi01.github.io/responsive-designs/Survey-Form">
           <figure>
-            <img loading="lazy" src="images/project-1.webp" alt="Clean, purple-themed survey form layout">
+            <!-- Added explicit width/height to prevent Cumulative Layout Shift (CLS) -->
+            <img
+  src="images/project-1.webp"
+  srcset="images/project-1-298w.webp 298w, images/project-1-596w.webp 596w"
+  sizes="(max-width: 480px) 288px, 298px"
+  loading="lazy" width="288" height="192"
+  alt="Clean, purple-themed survey form layout">
             <figcaption>
               <h3>Survey Form Mockup</h3>
             </figcaption>
@@ -69,9 +96,15 @@
         </a>
       </article>
       <article class="project-tile">
-        <a target="_blank" href="https://mafdi01.github.io/responsive-designs/Tribute-Page">
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://mafdi01.github.io/responsive-designs/Tribute-Page">
           <figure>
-            <img loading="lazy" src="images/project-2.webp" alt="Light-themed Tribute Page">
+            <img
+  src="images/project-2.webp"
+  srcset="images/project-2-298w.webp 298w, images/project-2-596w.webp 596w"
+  sizes="(max-width: 480px) 288px, 298px"
+  loading="lazy" width="288" height="192"
+  alt="Light-themed Tribute Page">
             <figcaption>
               <h3>Tribute Page (Fan-tailed Cuckoo)</h3>
             </figcaption>
@@ -79,9 +112,15 @@
         </a>
       </article>
       <article class="wide project-tile">
-        <a target="_blank" href="https://mafdi01.github.io/responsive-designs/Technical-Documentation-Page">
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://mafdi01.github.io/responsive-designs/Technical-Documentation-Page">
           <figure>
-            <img loading="lazy" src="images/project-3.webp" alt="Dark, purple-themed Technical Documentation Page">
+            <img
+  src="images/project-3.webp"
+  srcset="images/project-3-455w.webp 455w, images/project-3-910w.webp 910w"
+  sizes="(max-width: 480px) 288px, 455px"
+  loading="lazy" width="432" height="192"
+  alt="Dark, purple-themed Technical Documentation Page">
             <figcaption>
               <h3>Technical Documentation Page</h3>
             </figcaption>
@@ -89,9 +128,15 @@
         </a>
       </article>
       <article class="wide project-tile">
-        <a target="_blank" href="https://mafdi01.github.io/responsive-designs/Product-Landing-Page">
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://mafdi01.github.io/responsive-designs/Product-Landing-Page">
           <figure>
-            <img loading="lazy" src="images/project-4.webp" alt="Light-themed Product Landing Page">
+            <img
+  src="images/project-4.webp"
+  srcset="images/project-4-455w.webp 455w, images/project-4-910w.webp 910w"
+  sizes="(max-width: 480px) 288px, 455px"
+  loading="lazy" width="432" height="192"
+  alt="Light-themed Product Landing Page">
             <figcaption>
               <h3>Product Landing Page Mockup</h3>
             </figcaption>
@@ -103,27 +148,28 @@
     <section id="profiles">
       <h2 class="small-display">How about staying in the loop?</h2>
       <div id="logo-container">
-        <a href="https://www.linkedin.com/in/mafdi-bissada/" target="_blank"
-          style="background-color: #000; color: #fff;">
-          <i class="fa-brands fa-linkedin"></i>
+        <!-- Added aria-label to every icon-only link so screen readers announce the destination -->
+        <a href="https://www.linkedin.com/in/mafdi-bissada/" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn profile" style="background-color: #000; color: #fff;">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
         </a>
-        <a href="https://codepen.io/Mafdi" target="_blank" style="background-color: #000; color: #fff;">
-          <i class="fa-brands fa-codepen"></i>
+        <a href="https://codepen.io/Mafdi" target="_blank" rel="noopener noreferrer"
+          aria-label="CodePen profile" style="background-color: #000; color: #fff;">
+          <i class="fa-brands fa-codepen" aria-hidden="true"></i>
         </a>
-        <a id="profile-link" href="https://www.freecodecamp.org/mafdi7" target="_blank"
-          style="background-color: #0a0a23; color: #fff;">
-          <i class="fa-brands fa-free-code-camp"></i>
+        <a id="profile-link" href="https://www.freecodecamp.org/mafdi7" target="_blank" rel="noopener noreferrer"
+          aria-label="freeCodeCamp profile" style="background-color: #0a0a23; color: #fff;">
+          <i class="fa-brands fa-free-code-camp" aria-hidden="true"></i>
         </a>
-        <a href="https://github.com/mafdi01" target="_blank" style="background-color: #171515; color: #fff;">
-          <i class="fa-brands fa-github"></i>
+        <a href="https://github.com/mafdi01" target="_blank" rel="noopener noreferrer"
+          aria-label="GitHub profile" style="background-color: #171515; color: #fff;">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
         </a>
-        <a href="https://stackoverflow.com/users/15088777/m-b" target="_blank"
-          style="background-color: #252627; color: #fafafa;">
-          <i class="fa-brands fa-stack-overflow"></i>
+        <a href="https://stackoverflow.com/users/15088777/m-b" target="_blank" rel="noopener noreferrer"
+          aria-label="Stack Overflow profile" style="background-color: #252627; color: #fafafa;">
+          <i class="fa-brands fa-stack-overflow" aria-hidden="true"></i>
         </a>
-
       </div>
-
     </section>
   </main>
 
