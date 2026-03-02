@@ -279,7 +279,7 @@ header {
   }
 
   100% {
-    transform: translateX(calc(100cqi - var(--project-tile-width) - 2rem));
+    transform: translateX(calc(100cqi - var(--project-tile-width)));
   }
 }
 
