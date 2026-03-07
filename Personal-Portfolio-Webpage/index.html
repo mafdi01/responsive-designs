@@ -24,9 +24,7 @@
          - Noto Serif variants are kept as variable-font ranges (wdth axis requires it). -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    rel="preload"
-    as="style"
+  <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,400;1,700&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
     onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
@@ -78,17 +76,28 @@
 
     <section id="projects">
       <h2 class="small-display">A collection of responsive web designs</h2>
+      <article class="wide project-tile">
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://mafdi01.github.io/meta-front-end/mangata-and-gallo/index.html">
+          <figure>
+            <img src="images/mangata-and-gallo.webp"
+              srcset="images/mangata-and-gallo-455w.webp 455w, images/mangata-and-gallo-910w.webp 910w"
+              sizes="(max-width: 480px) 288px, 455px" loading="lazy" width="432" height="192"
+              alt="Luxury-themed E-commerce HomePage design">
+            <figcaption>
+              <h3>Mangata & Gallo | Luxury Jewelry E-commerce</h3>
+            </figcaption>
+          </figure>
+        </a>
+      </article>
       <article class="project-tile">
         <!-- Added rel="noopener noreferrer" to all target="_blank" links -->
         <a target="_blank" rel="noopener noreferrer" href="https://mafdi01.github.io/responsive-designs/Survey-Form">
           <figure>
             <!-- Added explicit width/height to prevent Cumulative Layout Shift (CLS) -->
-            <img
-  src="images/project-1.webp"
-  srcset="images/project-1-298w.webp 298w, images/project-1-596w.webp 596w"
-  sizes="(max-width: 480px) 288px, 298px"
-  loading="lazy" width="288" height="192"
-  alt="Clean, purple-themed survey form layout">
+            <img src="images/project-1.webp" srcset="images/project-1-298w.webp 298w, images/project-1-596w.webp 596w"
+              sizes="(max-width: 480px) 288px, 298px" loading="lazy" width="288" height="192"
+              alt="Clean, purple-themed survey form layout">
             <figcaption>
               <h3>Survey Form Mockup</h3>
             </figcaption>
@@ -96,15 +105,11 @@
         </a>
       </article>
       <article class="project-tile">
-        <a target="_blank" rel="noopener noreferrer"
-          href="https://mafdi01.github.io/responsive-designs/Tribute-Page">
+        <a target="_blank" rel="noopener noreferrer" href="https://mafdi01.github.io/responsive-designs/Tribute-Page">
           <figure>
-            <img
-  src="images/project-2.webp"
-  srcset="images/project-2-298w.webp 298w, images/project-2-596w.webp 596w"
-  sizes="(max-width: 480px) 288px, 298px"
-  loading="lazy" width="288" height="192"
-  alt="Light-themed Tribute Page">
+            <img src="images/project-2.webp" srcset="images/project-2-298w.webp 298w, images/project-2-596w.webp 596w"
+              sizes="(max-width: 480px) 288px, 298px" loading="lazy" width="288" height="192"
+              alt="Light-themed Tribute Page">
             <figcaption>
               <h3>Tribute Page (Fan-tailed Cuckoo)</h3>
             </figcaption>
@@ -115,12 +120,9 @@
         <a target="_blank" rel="noopener noreferrer"
           href="https://mafdi01.github.io/responsive-designs/Technical-Documentation-Page">
           <figure>
-            <img
-  src="images/project-3.webp"
-  srcset="images/project-3-455w.webp 455w, images/project-3-910w.webp 910w"
-  sizes="(max-width: 480px) 288px, 455px"
-  loading="lazy" width="432" height="192"
-  alt="Dark, purple-themed Technical Documentation Page">
+            <img src="images/project-3.webp" srcset="images/project-3-455w.webp 455w, images/project-3-910w.webp 910w"
+              sizes="(max-width: 480px) 288px, 455px" loading="lazy" width="432" height="192"
+              alt="Dark, purple-themed Technical Documentation Page">
             <figcaption>
               <h3>Technical Documentation Page</h3>
             </figcaption>
@@ -131,12 +133,9 @@
         <a target="_blank" rel="noopener noreferrer"
           href="https://mafdi01.github.io/responsive-designs/Product-Landing-Page">
           <figure>
-            <img
-  src="images/project-4.webp"
-  srcset="images/project-4-455w.webp 455w, images/project-4-910w.webp 910w"
-  sizes="(max-width: 480px) 288px, 455px"
-  loading="lazy" width="432" height="192"
-  alt="Light-themed Product Landing Page">
+            <img src="images/project-4.webp" srcset="images/project-4-455w.webp 455w, images/project-4-910w.webp 910w"
+              sizes="(max-width: 480px) 288px, 455px" loading="lazy" width="432" height="192"
+              alt="Light-themed Product Landing Page">
             <figcaption>
               <h3>Product Landing Page Mockup</h3>
             </figcaption>
@@ -153,16 +152,16 @@
           aria-label="LinkedIn profile" style="background-color: #000; color: #fff;">
           <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
         </a>
-        <a href="https://codepen.io/Mafdi" target="_blank" rel="noopener noreferrer"
-          aria-label="CodePen profile" style="background-color: #000; color: #fff;">
+        <a href="https://codepen.io/Mafdi" target="_blank" rel="noopener noreferrer" aria-label="CodePen profile"
+          style="background-color: #000; color: #fff;">
           <i class="fa-brands fa-codepen" aria-hidden="true"></i>
         </a>
         <a id="profile-link" href="https://www.freecodecamp.org/mafdi7" target="_blank" rel="noopener noreferrer"
           aria-label="freeCodeCamp profile" style="background-color: #0a0a23; color: #fff;">
           <i class="fa-brands fa-free-code-camp" aria-hidden="true"></i>
         </a>
-        <a href="https://github.com/mafdi01" target="_blank" rel="noopener noreferrer"
-          aria-label="GitHub profile" style="background-color: #171515; color: #fff;">
+        <a href="https://github.com/mafdi01" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"
+          style="background-color: #171515; color: #fff;">
           <i class="fa-brands fa-github" aria-hidden="true"></i>
         </a>
         <a href="https://stackoverflow.com/users/15088777/m-b" target="_blank" rel="noopener noreferrer"
