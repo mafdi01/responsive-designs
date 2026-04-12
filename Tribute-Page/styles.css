@@ -29,7 +29,7 @@ li {
   margin-bottom: .7rem;
 }
 
-#img-div {
+figure {
   max-width: min(399px, 100%);
   margin: auto;
   padding: 10px;

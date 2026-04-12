@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tribute Page of Fan-tailed Cuckoo, A Required Project For Responsive Web Design Certification at freeCodeCamp" />
+  <meta name="description"
+    content="Tribute Page of Fan-tailed Cuckoo, A Required Project For Responsive Web Design Certification at freeCodeCamp" />
   <title>Tribute Page</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -14,13 +15,16 @@
     <!--main contains all other elements-->
     <h1 id="title">Fan-tailed Cuckoo</h1>
     <p>A species of cuckoo in the family Cuculidae</p>
-    <div id="img-div">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Cacomantis_flabelliformis.jpg/399px-Cacomantis_flabelliformis.jpg"
-        id="image" alt="Fan-tailed Cuckoo" />
-      <div id="img-caption">The fan-tailed cuckoo (Cacomantis flabelliformis) is about 25–27 cm (9.8–10.6 in) long.
-      </div>
-    </div>
+
+    <figure>
+      <img id="image" src="images/cuckoo.jpg" alt="Fan-tailed Cuckoo perched on a branch" width="400">
+      <figcaption id="img-caption">
+        The fan-tailed cuckoo (Cacomantis flabelliformis) is about 25–27 cm (9.8–10.6 in) long.<br>
+        Photo by <a href="https://commons.wikimedia.org/wiki/User:JJ_Harrison" target="_blank">JJ Harrison</a> /
+        <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC BY-SA 3.0</a>
+      </figcaption>
+    </figure>
+
     <div id="tribute-info">
       <h2>Here're some facts about Fan-tailed Cuckoo:</h2>
       <ul>
